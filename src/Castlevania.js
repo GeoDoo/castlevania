@@ -12,10 +12,10 @@ const Castlevania = () => (
   <>
     <h1>Castlevania</h1>
     <div id="hero">
-      <Character assetPath={Isaac} />
+      <Character figure={Isaac} />
     </div>
     <div id="enemy">
-      <Character assetPath={Carmilla} />
+      <Character figure={Carmilla} />
     </div>
     <audio id="music-score" src={audio} autoPlay loop></audio>
   </>
