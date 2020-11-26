@@ -1,3 +1,3 @@
-const roll = () => Math.floor(Math.random() * 6) + 1;
+const roll = () => Math.floor(Math.random() * 6) + 1
 
-export { roll };
+export { roll }

@@ -1,0 +1,39 @@
+{
+  "env": {
+    "commonjs": true,
+    "es2020": true,
+    "node": true
+  },
+  "extends": ["prettier", "google", "plugin:react/recommended"],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "semi": "off",
+    "object-curly-spacing": "off",
+    "indent": "off",
+    "arrow-parens": "off",
+    "max-len": "off",
+    "quotes": "off",
+    "operator-linebreak": "off",
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "always",
+        "asyncArrow": "always"
+      }
+    ]
+  }
+}

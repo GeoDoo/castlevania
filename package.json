@@ -1,16 +1,18 @@
 {
   "name": "castlevania",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A battle to the death!",
+  "private": true,
   "scripts": {
     "start": "webpack serve",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\""
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Georgios Karametas <geometas@hotmail.com> (https://geodoo.work/)",
+  "license": "LGPL v2.1",
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
@@ -18,16 +20,23 @@
     "@testing-library/react": "^11.2.2",
     "babel-loader": "^8.2.1",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.14.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
     "html-webpack-plugin": "^4.5.0",
     "husky": "^4.3.0",
     "jest": "^26.6.3",
+    "prettier": "^2.2.0",
     "webpack": "^5.7.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "npm run lint && npm run format"
     }
   },
   "config": {
@@ -38,5 +47,15 @@
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
