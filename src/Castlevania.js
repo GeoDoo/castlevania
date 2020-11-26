@@ -3,6 +3,7 @@ import React from 'react'
 import Character from './components/Character'
 import LifeMeter from './components/LifeMeter'
 import Die from './components/Die'
+import Button from './components/Button'
 
 import { roll } from './utils/roll'
 
@@ -30,6 +31,9 @@ const Castlevania = () => (
       </div>
     </div>
     <div id="hero">
+      <div id="controls">
+        <Button text="Attack" />
+      </div>
       <Character figure={Isaac} />
     </div>
     <div id="enemy">
