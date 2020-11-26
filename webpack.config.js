@@ -2,10 +2,16 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  mode: 'development',
   entry: path.resolve(__dirname, 'src'),
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    chunkFilename: '[id].js',
+    publicPath: '/',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
@@ -24,6 +30,9 @@ module.exports = {
     }),
   ],
   devServer: {
-    publicPath: '/',
+    historyApiFallback: true,
+    host: 'localhost',
+    port: 8080,
+    disableHostCheck: true,
   },
 }
