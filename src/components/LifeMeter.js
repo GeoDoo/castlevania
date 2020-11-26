@@ -4,9 +4,9 @@ import './LifeMeter.pcss'
 
 // eslint-disable-next-line react/prop-types
 const LifeMeter = ({ name, reversed }) => (
-  <div>
+  <div className="life-meter">
     <h4 className={reversed ? 'text-right' : ''}>{name}</h4>
-    <div className={reversed ? 'reversed health-bar' : 'health-bar'}>
+    <div className={reversed ? 'reversed right health-bar' : 'left health-bar'}>
       <div className="bar"></div>
     </div>
   </div>
