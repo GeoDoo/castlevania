@@ -2,6 +2,9 @@ import React from 'react'
 
 import Character from './components/Character'
 import LifeMeter from './components/LifeMeter'
+import Die from './components/Die'
+
+import { roll } from './utils/roll'
 
 import Isaac from './assets/svg/heroes/Isaac.svg'
 import Carmilla from './assets/svg/enemies/Carmilla.svg'
@@ -14,7 +17,17 @@ const Castlevania = () => (
     <h1>Castlevania</h1>
     <div id="score">
       <LifeMeter name="Isaac" />
-      <LifeMeter name="Carmilla" />
+      <LifeMeter name="Carmilla" reversed />
+    </div>
+    <div id="cast-dice">
+      <div>
+        <Die side={roll()} />
+        <Die side={roll()} />
+      </div>
+      <div>
+        <Die side={roll()} />
+        <Die side={roll()} />
+      </div>
     </div>
     <div id="hero">
       <Character figure={Isaac} />
