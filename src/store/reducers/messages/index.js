@@ -1,7 +1,6 @@
 const initialState = {
   hit: '',
-  win: '',
-  lose: '',
+  outcome: '',
 }
 
 const messages = (state = initialState, action) => {

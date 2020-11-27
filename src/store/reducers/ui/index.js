@@ -2,7 +2,7 @@ const initialState = {
   isHeroDiceShown: false,
   isFoeDiceShown: false,
   isHitMessageShown: false,
-  isWinMessageShown: false,
+  isOutcomeMessageShown: false,
 }
 
 const ui = (state = initialState, action) => {

@@ -16,6 +16,8 @@ import './Castlevania.pcss'
 
 const Castlevania = () => {
   const health = useSelector(state => state.health)
+  const messages = useSelector(state => state.messages)
+  const ui = useSelector(state => state.ui)
 
   return (
     <>
@@ -25,15 +27,21 @@ const Castlevania = () => {
         <LifeMeter name="Carmilla" health={health.foe} reversed />
       </div>
       <div id="cast-dice">
-        <div>
-          <Die side={roll()} />
-          <Die side={roll()} />
-        </div>
-        <div>
-          <Die side={roll()} />
-          <Die side={roll()} />
-        </div>
+        {ui.isHeroDiceShown && (
+          <div>
+            <Die side={roll()} />
+            <Die side={roll()} />
+          </div>
+        )}
+        {ui.isFoeDiceShown && (
+          <div>
+            <Die side={roll()} />
+            <Die side={roll()} />
+          </div>
+        )}
       </div>
+      {ui.isOutcomeMessageShown && <div id="outcome">{messages.outcome}</div>}
+      {ui.isHitMessageShown && <div id="hit">{messages.hit}</div>}
       <div id="hero">
         <div id="controls">
           <Button text="Attack" />
