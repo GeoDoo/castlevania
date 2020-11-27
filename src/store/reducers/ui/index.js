@@ -19,6 +19,11 @@ const ui = (state = initialState, action) => {
         ...state,
         isFoeDiceShown: true,
       }
+    case types.SET_IS_HIT_MESSAGE_SHOWN:
+      return {
+        ...state,
+        isHitMessageShown: true,
+      }
     case 'RESET':
       return {
         ...initialState,

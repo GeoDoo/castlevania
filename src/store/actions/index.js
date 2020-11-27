@@ -1,5 +1,10 @@
 import { setHealth } from './health'
-import { setIsHeroDiceShown, setIsFoeDiceShown } from './ui'
+import { setMessage } from './messages'
+import {
+  setIsHeroDiceShown,
+  setIsFoeDiceShown,
+  setIsHitMessageShown,
+} from './ui'
 import { setDice } from './dice'
 
 const reset = () => ({
@@ -8,8 +13,10 @@ const reset = () => ({
 
 const actions = {
   setHealth,
+  setMessage,
   setIsHeroDiceShown,
   setIsFoeDiceShown,
+  setIsHitMessageShown,
   setDice,
   reset,
 }

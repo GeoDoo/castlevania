@@ -31,26 +31,38 @@ const Castlevania = () => {
     dispatch(actions.setIsHeroDiceShown())
     dispatch(actions.setDice('hero', heroDice))
 
-    setTimeout(() => {
+    const heroCastTimer = setTimeout(() => {
       dispatch(actions.setIsFoeDiceShown())
       dispatch(actions.setDice('foe', foeDice))
     }, 1000)
 
-    setTimeout(() => {
-      const damage = calculateDamage(heroDice, foeDice)
+    const foeCastTimer = setTimeout(() => {
+      const damage = calculateDamage(heroDice, foeDice) * 5
 
       if (damage > 0) {
         dispatch(actions.setHealth('foe', damage))
+        dispatch(actions.setMessage(`You hit for ${damage}!`))
       }
 
       if (damage < 0) {
         dispatch(actions.setHealth('hero', -damage))
+        dispatch(actions.setMessage(`Ouch! You got hit for ${-damage}!`))
       }
+
+      if (damage === 0) {
+        dispatch(actions.setMessage('Draw!!'))
+      }
+
+      dispatch(actions.setIsHitMessageShown())
     }, 2000)
 
-    setTimeout(() => {
+    const resetTimer = setTimeout(() => {
       dispatch(actions.reset())
-    }, 3000)
+
+      clearTimeout(heroCastTimer)
+      clearTimeout(foeCastTimer)
+      clearTimeout(resetTimer)
+    }, 4000)
   }
 
   return (
@@ -70,11 +82,14 @@ const Castlevania = () => {
         {ui.isFoeDiceShown && (
           <div>
             <Die side={dice.foe[0]} />
-            <Die side={dice.foe[0]} />
+            <Die side={dice.foe[1]} />
           </div>
         )}
       </div>
-      {ui.isOutcomeMessageShown && <div id="outcome">{messages.outcome}</div>}
+      <div id="outcome">
+        {health.hero === 0 && <div className="red">GAME OVER</div>}
+        {health.foe === 0 && <div className="green">YOU WIN!</div>}
+      </div>
       {ui.isHitMessageShown && <div id="hit">{messages.hit}</div>}
       <div id="hero">
         <div id="controls">
