@@ -1,12 +1,12 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Character from './components/Character'
 import LifeMeter from './components/LifeMeter'
 import Die from './components/Die'
 import Button from './components/Button'
 
-import { roll } from './utils/roll'
+import actions from './store/actions'
 
 import Isaac from './assets/svg/heroes/Isaac.svg'
 import Carmilla from './assets/svg/enemies/Carmilla.svg'
@@ -18,6 +18,18 @@ const Castlevania = () => {
   const health = useSelector(state => state.health)
   const messages = useSelector(state => state.messages)
   const ui = useSelector(state => state.ui)
+  const dice = useSelector(state => state.dice)
+  const dispatch = useDispatch()
+
+  const onClick = () => {
+    dispatch(actions.setIsHeroDiceShown())
+    dispatch(actions.setDice('hero'))
+
+    setTimeout(() => {
+      dispatch(actions.setIsFoeDiceShown())
+      dispatch(actions.setDice('foe'))
+    }, 1000)
+  }
 
   return (
     <>
@@ -29,14 +41,14 @@ const Castlevania = () => {
       <div id="cast-dice">
         {ui.isHeroDiceShown && (
           <div>
-            <Die side={roll()} />
-            <Die side={roll()} />
+            <Die side={dice.hero[0]} />
+            <Die side={dice.hero[1]} />
           </div>
         )}
         {ui.isFoeDiceShown && (
           <div>
-            <Die side={roll()} />
-            <Die side={roll()} />
+            <Die side={dice.foe[0]} />
+            <Die side={dice.foe[0]} />
           </div>
         )}
       </div>
@@ -44,7 +56,7 @@ const Castlevania = () => {
       {ui.isHitMessageShown && <div id="hit">{messages.hit}</div>}
       <div id="hero">
         <div id="controls">
-          <Button text="Attack" />
+          <Button text="Attack" onClick={onClick} />
         </div>
         <Character figure={Isaac} />
       </div>

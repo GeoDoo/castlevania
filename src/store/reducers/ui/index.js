@@ -1,3 +1,5 @@
+import types from '../../actions/ui/types'
+
 const initialState = {
   isHeroDiceShown: false,
   isFoeDiceShown: false,
@@ -7,6 +9,16 @@ const initialState = {
 
 const ui = (state = initialState, action) => {
   switch (action.type) {
+    case types.SET_IS_HERO_DICE_SHOWN:
+      return {
+        ...state,
+        isHeroDiceShown: true,
+      }
+    case types.SET_IS_FOE_DICE_SHOWN:
+      return {
+        ...state,
+        isFoeDiceShown: true,
+      }
     default:
       return state
   }
