@@ -12,6 +12,7 @@ const LifeMeter = ({ name, health, reversed }) => (
     >
       <div className="bar"></div>
     </div>
+    <div className={reversed ? 'text-right hp' : 'hp'}>HP: {health}</div>
   </div>
 )
 
