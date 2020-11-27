@@ -1,5 +1,4 @@
 import types from '../../actions/dice/types'
-import { roll } from '../../../utils/roll'
 
 const initialState = {
   hero: [],
@@ -11,7 +10,11 @@ const dice = (state = initialState, action) => {
     case types.SET_DICE:
       return {
         ...state,
-        [action.character]: [roll(), roll()],
+        [action.character]: action.dice,
+      }
+    case 'RESET':
+      return {
+        ...initialState,
       }
     default:
       return state

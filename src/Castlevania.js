@@ -8,6 +8,9 @@ import Button from './components/Button'
 
 import actions from './store/actions'
 
+import { roll } from './utils/roll'
+import calculateDamage from './helpers'
+
 import Isaac from './assets/svg/heroes/Isaac.svg'
 import Carmilla from './assets/svg/enemies/Carmilla.svg'
 import audio from './assets/audio/toccata_and_fugue_D_minor.mp3'
@@ -22,13 +25,32 @@ const Castlevania = () => {
   const dispatch = useDispatch()
 
   const onClick = () => {
+    const heroDice = [roll(), roll()]
+    const foeDice = [roll(), roll()]
+
     dispatch(actions.setIsHeroDiceShown())
-    dispatch(actions.setDice('hero'))
+    dispatch(actions.setDice('hero', heroDice))
 
     setTimeout(() => {
       dispatch(actions.setIsFoeDiceShown())
-      dispatch(actions.setDice('foe'))
+      dispatch(actions.setDice('foe', foeDice))
     }, 1000)
+
+    setTimeout(() => {
+      const damage = calculateDamage(heroDice, foeDice)
+
+      if (damage > 0) {
+        dispatch(actions.setHealth('foe', damage))
+      }
+
+      if (damage < 0) {
+        dispatch(actions.setHealth('hero', -damage))
+      }
+    }, 2000)
+
+    setTimeout(() => {
+      dispatch(actions.reset())
+    }, 3000)
   }
 
   return (

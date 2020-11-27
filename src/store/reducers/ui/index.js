@@ -19,6 +19,10 @@ const ui = (state = initialState, action) => {
         ...state,
         isFoeDiceShown: true,
       }
+    case 'RESET':
+      return {
+        ...initialState,
+      }
     default:
       return state
   }
