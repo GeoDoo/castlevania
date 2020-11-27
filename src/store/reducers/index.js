@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
-import characters from './characters'
+import health from './health'
 import messages from './messages'
 import ui from './ui'
 
 export default combineReducers({
-  characters,
+  health,
   messages,
   ui,
 })
