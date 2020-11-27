@@ -4,7 +4,7 @@ const initialState = {
   isHeroDiceShown: false,
   isFoeDiceShown: false,
   isHitMessageShown: false,
-  isOutcomeMessageShown: false,
+  isAttackDisabled: false,
 }
 
 const ui = (state = initialState, action) => {
@@ -13,6 +13,7 @@ const ui = (state = initialState, action) => {
       return {
         ...state,
         isHeroDiceShown: true,
+        isAttackDisabled: true,
       }
     case types.SET_IS_FOE_DICE_SHOWN:
       return {

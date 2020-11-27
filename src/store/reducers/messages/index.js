@@ -2,7 +2,6 @@ import types from '../../actions/messages/types'
 
 const initialState = {
   hit: '',
-  outcome: '',
 }
 
 const messages = (state = initialState, action) => {

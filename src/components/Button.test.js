@@ -18,4 +18,16 @@ describe('Button', () => {
 
     expect(onClick).toHaveBeenCalled()
   })
+
+  it('can be disabled', () => {
+    const onClick = jest.fn()
+
+    const { getByText } = render(
+      <Button text="Attack" onClick={onClick} disabled />,
+    )
+
+    fireEvent.click(getByText(/Attack/))
+
+    expect(onClick).toHaveBeenCalledTimes(0)
+  })
 })

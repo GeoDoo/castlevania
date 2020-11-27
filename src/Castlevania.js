@@ -37,7 +37,7 @@ const Castlevania = () => {
     }, 1000)
 
     const foeCastTimer = setTimeout(() => {
-      const damage = calculateDamage(heroDice, foeDice) * 5
+      const damage = calculateDamage(heroDice, foeDice)
 
       if (damage > 0) {
         dispatch(actions.setHealth('foe', damage))
@@ -62,8 +62,12 @@ const Castlevania = () => {
       clearTimeout(heroCastTimer)
       clearTimeout(foeCastTimer)
       clearTimeout(resetTimer)
-    }, 4000)
+    }, 3000)
   }
+
+  const isEndGame = health.hero === 0 || health.foe === 0
+  const isWin = health.foe === 0
+  const isLoss = health.hero === 0
 
   return (
     <>
@@ -86,14 +90,14 @@ const Castlevania = () => {
           </div>
         )}
       </div>
-      <div id="outcome">
-        {health.hero === 0 && <div className="red">GAME OVER</div>}
-        {health.foe === 0 && <div className="green">YOU WIN!</div>}
-      </div>
       {ui.isHitMessageShown && <div id="hit">{messages.hit}</div>}
       <div id="hero">
         <div id="controls">
-          <Button text="Attack" onClick={onClick} />
+          <Button
+            text="Attack"
+            onClick={onClick}
+            disabled={ui.isAttackDisabled}
+          />
         </div>
         <Character figure={Isaac} />
       </div>
@@ -101,6 +105,10 @@ const Castlevania = () => {
         <Character figure={Carmilla} />
       </div>
       <audio id="music-score" src={audio} autoPlay loop></audio>
+      <div id="outcome" className={isEndGame ? 'fixed' : ''}>
+        {isWin && <div className="green win">YOU WIN!</div>}
+        {isLoss && <div className="red lose">GAME OVER</div>}
+      </div>
     </>
   )
 }
