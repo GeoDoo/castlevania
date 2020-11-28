@@ -11,3 +11,15 @@ Battle simulator with Castlevania theme.
 npm install
 npm start
 ```
+
+### List of possible improvements / additions / features
+
+- Settings for music / speed / character selection
+- Add magic attacks
+- Add critical hits
+- Add HP and MP replenishing
+- Sound effects
+- Animations and motion
+- Restart button at the end?
+- Maybe group battles too? And more enemies?
+- and much more :smile:
