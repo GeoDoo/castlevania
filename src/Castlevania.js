@@ -105,10 +105,12 @@ const Castlevania = () => {
         <Character figure={Carmilla} />
       </div>
       <audio id="music-score" src={audio} autoPlay loop></audio>
-      <div id="outcome" className={isEndGame ? 'fixed' : ''}>
-        {isWin && <div className="green win">YOU WIN!</div>}
-        {isLoss && <div className="red lose">GAME OVER</div>}
-      </div>
+      {isEndGame && (
+        <div id="outcome">
+          {isWin && <div className="green win">YOU WIN!</div>}
+          {isLoss && <div className="red lose">GAME OVER</div>}
+        </div>
+      )}
     </>
   )
 }
