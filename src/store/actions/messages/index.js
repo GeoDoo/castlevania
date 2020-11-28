@@ -1,6 +1,6 @@
-import types from './types'
+import { SET_MESSAGE } from './types'
 
 export const setMessage = message => ({
-  type: types.SET_MESSAGE,
+  type: SET_MESSAGE,
   message,
 })

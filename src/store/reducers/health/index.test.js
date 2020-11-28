@@ -1,5 +1,5 @@
 import reducer from './index.js'
-import types from '../../actions/health/types'
+import { SET_HEALTH } from '../../actions/health/types'
 
 describe('health reducer', () => {
   it('should set health', () => {
@@ -7,7 +7,7 @@ describe('health reducer', () => {
       foe: 100,
     }
     const action = {
-      type: types.SET_HEALTH,
+      type: SET_HEALTH,
       character: 'foe',
       damage: 40,
     }
@@ -21,7 +21,7 @@ describe('health reducer', () => {
       foe: 100,
     }
     const action = {
-      type: types.SET_HEALTH,
+      type: SET_HEALTH,
       character: 'foe',
       damage: 110,
     }

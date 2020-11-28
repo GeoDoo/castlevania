@@ -1,6 +1,3 @@
-const types = {
-  SET_DICE: 'SET_DICE',
-  SET_DAMAGE: 'SET_DAMAGE',
-}
+const SET_DICE = 'SET_DICE'
 
-export default types
+export { SET_DICE }

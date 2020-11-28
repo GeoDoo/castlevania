@@ -1,7 +1,7 @@
-import types from './types'
+import { SET_DICE } from './types'
 
 export const setDice = (character, dice) => ({
-  type: types.SET_DICE,
+  type: SET_DICE,
   character,
   dice,
 })

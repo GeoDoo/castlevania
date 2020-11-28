@@ -1,4 +1,5 @@
-import types from '../../actions/dice/types'
+import { SET_DICE } from '../../actions/dice/types'
+import { RESET } from '../../actions/types'
 
 const initialState = {
   hero: [],
@@ -7,12 +8,12 @@ const initialState = {
 
 const dice = (state = initialState, action) => {
   switch (action.type) {
-    case types.SET_DICE:
+    case SET_DICE:
       return {
         ...state,
         [action.character]: action.dice,
       }
-    case 'RESET':
+    case RESET:
       return {
         ...initialState,
       }

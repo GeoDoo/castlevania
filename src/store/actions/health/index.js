@@ -1,7 +1,7 @@
-import types from './types'
+import { SET_HEALTH } from './types'
 
 export const setHealth = (character, damage) => ({
-  type: types.SET_HEALTH,
+  type: SET_HEALTH,
   character,
   damage,
 })

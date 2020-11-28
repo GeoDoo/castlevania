@@ -1,5 +1,3 @@
-const types = {
-  SET_MESSAGE: 'SET_MESSAGE',
-}
+const SET_MESSAGE = 'SET_MESSAGE'
 
-export default types
+export { SET_MESSAGE }

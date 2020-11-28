@@ -1,4 +1,4 @@
-import types from '../../actions/health/types'
+import { SET_HEALTH } from '../../actions/health/types'
 
 const initialState = {
   hero: 100,
@@ -7,7 +7,7 @@ const initialState = {
 
 const health = (state = initialState, action) => {
   switch (action.type) {
-    case types.SET_HEALTH:
+    case SET_HEALTH:
       return {
         ...state,
         [action.character]:

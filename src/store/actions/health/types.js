@@ -1,5 +1,3 @@
-const types = {
-  SET_HEALTH: 'SET_HEALTH',
-}
+const SET_HEALTH = 'SET_HEALTH'
 
-export default types
+export { SET_HEALTH }

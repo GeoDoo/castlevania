@@ -7,8 +7,10 @@ import {
 } from './ui'
 import { setDice } from './dice'
 
+import { RESET } from './types'
+
 const reset = () => ({
-  type: 'RESET',
+  type: RESET,
 })
 
 const actions = {

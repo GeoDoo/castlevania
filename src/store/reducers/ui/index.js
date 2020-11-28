@@ -1,4 +1,9 @@
-import types from '../../actions/ui/types'
+import {
+  SET_IS_HERO_DICE_SHOWN,
+  SET_IS_FOE_DICE_SHOWN,
+  SET_IS_HIT_MESSAGE_SHOWN,
+} from '../../actions/ui/types'
+import { RESET } from '../../actions/types'
 
 const initialState = {
   isHeroDiceShown: false,
@@ -9,23 +14,23 @@ const initialState = {
 
 const ui = (state = initialState, action) => {
   switch (action.type) {
-    case types.SET_IS_HERO_DICE_SHOWN:
+    case SET_IS_HERO_DICE_SHOWN:
       return {
         ...state,
         isHeroDiceShown: true,
         isAttackDisabled: true,
       }
-    case types.SET_IS_FOE_DICE_SHOWN:
+    case SET_IS_FOE_DICE_SHOWN:
       return {
         ...state,
         isFoeDiceShown: true,
       }
-    case types.SET_IS_HIT_MESSAGE_SHOWN:
+    case SET_IS_HIT_MESSAGE_SHOWN:
       return {
         ...state,
         isHitMessageShown: true,
       }
-    case 'RESET':
+    case RESET:
       return {
         ...initialState,
       }
