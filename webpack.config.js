@@ -11,7 +11,13 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    alias: {
+      assets: path.resolve(__dirname, 'src/assets'),
+      utils: path.resolve(__dirname, 'src/utils'),
+      components: path.resolve(__dirname, 'src/components'),
+      actions: path.resolve(__dirname, 'src/store/actions'),
+      reducers: path.resolve(__dirname, 'src/store/reducers'),
+    },
   },
   module: {
     rules: [

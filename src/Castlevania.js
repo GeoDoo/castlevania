@@ -1,19 +1,19 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Character from './components/Character'
-import LifeMeter from './components/LifeMeter'
-import Die from './components/Die'
-import Button from './components/Button'
+import Character from 'components/Character'
+import LifeMeter from 'components/LifeMeter'
+import Die from 'components/Die'
+import Button from 'components/Button'
 
-import actions from './store/actions'
+import actions from 'actions'
 
-import { roll } from './utils/roll'
+import { roll } from 'utils/roll'
 import calculateDamage from './helpers'
 
-import Isaac from './assets/svg/heroes/Isaac.svg'
-import Carmilla from './assets/svg/enemies/Carmilla.svg'
-import audio from './assets/audio/toccata_and_fugue_D_minor.mp3'
+import Isaac from 'assets/svg/heroes/Isaac.svg'
+import Carmilla from 'assets/svg/enemies/Carmilla.svg'
+import audio from 'assets/audio/toccata_and_fugue_D_minor.mp3'
 
 import './Castlevania.pcss'
 

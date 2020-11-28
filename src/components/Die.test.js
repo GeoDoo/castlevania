@@ -1,6 +1,7 @@
 import React from 'react'
-import Die from './Die'
 import { render } from '@testing-library/react'
+
+import Die from './Die'
 
 describe('Die', () => {
   it('should render the correct side based on the number it receives', () => {

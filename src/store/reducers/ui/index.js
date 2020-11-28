@@ -2,8 +2,8 @@ import {
   SET_IS_HERO_DICE_SHOWN,
   SET_IS_FOE_DICE_SHOWN,
   SET_IS_HIT_MESSAGE_SHOWN,
-} from '../../actions/ui/types'
-import { RESET } from '../../actions/types'
+} from 'actions/ui/types'
+import { RESET } from 'actions/types'
 
 const initialState = {
   isHeroDiceShown: false,

@@ -1,4 +1,4 @@
-import { SET_HEALTH } from '../../actions/health/types'
+import { SET_HEALTH } from 'actions/health/types'
 
 const initialState = {
   hero: 100,

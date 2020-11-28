@@ -6,7 +6,6 @@ import store from './store'
 
 import Castlevania from './Castlevania'
 
-import './assets/fonts/malignant.ttf'
 import './index.pcss'
 
 ReactDOM.render(

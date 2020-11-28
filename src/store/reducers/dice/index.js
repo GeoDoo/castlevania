@@ -1,5 +1,5 @@
-import { SET_DICE } from '../../actions/dice/types'
-import { RESET } from '../../actions/types'
+import { SET_DICE } from 'actions/dice/types'
+import { RESET } from 'actions/types'
 
 const initialState = {
   hero: [],

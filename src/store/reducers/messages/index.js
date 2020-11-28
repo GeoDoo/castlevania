@@ -1,5 +1,5 @@
-import { SET_MESSAGE } from '../../actions/messages/types'
-import { RESET } from '../../actions/types'
+import { SET_MESSAGE } from 'actions/messages/types'
+import { RESET } from 'actions/types'
 
 const initialState = {
   hit: '',

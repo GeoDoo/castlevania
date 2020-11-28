@@ -1,5 +1,6 @@
+import { SET_HEALTH } from 'actions/health/types'
+
 import reducer from './index.js'
-import { SET_HEALTH } from '../../actions/health/types'
 
 describe('health reducer', () => {
   it('should set health', () => {
